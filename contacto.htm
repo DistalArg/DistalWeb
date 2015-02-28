@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Distal - Contacto</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap Resources -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+    <!-- Latest compiled JavaScript -->
+    <script src="dist/js/bootstrap.min.js"></script>
+    
+    <!--Compatibilidad-->
+    <script src="javascripts/compatibilidadesBootstrap.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--Activa el método de compatibilidad más avanzado de IE-->
+    <link rel="stylesheet" type="text/css" href="CSS/compatibilidadesBootstrap.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="CSS/generalStyles.css">
+		<!-- JS -->
+		<script src="javascripts/contacto.js"></script>
+
+</head>
+<body>
+  <div class="container">
+  <div class="page-header">
+    <h1><img src="files/logo-distal.png">
+    <small class="pull-rigth">Insumos de calidad</small></h1>
+  </div>
+  <div class="container">
+    <form action="MAILTO:alejandro@distal.com.ar " method="post" enctype="text/plain" id="form-contacto"> 
+      <div class="form-group">
+      <label for="name" class="sr-only">Nombre:</label>
+      <input type="textbox" placeholder="ingrese su nombre" name="name" id="name" class="form-control">
+      </div>
+      <div class="form-group">
+      <label for="email" class="sr-only">Correo electr&oacute;nico</label>
+      <input type="email" placeholder="ingrese su correo electr&oacute;nico" name="name" id="email" class="form-control">
+      </div>
+      <div class="form-group">
+      <label for="mensaje" class="sr-only"></label>
+      <textarea name="" id="mensaje" cols="30" rows="10" class="form-control" placeholder="Escriba su mensaje..."></textarea>
+      </div>
+      <div id="div-botones">
+      <a href="home.htm" class="btn btn-default"> &lt; Volver </a>
+      <submit class="btn btn-primary"> Enviar &gt;&gt; </submit>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
