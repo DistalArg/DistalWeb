@@ -1,49 +1,67 @@
-$('document').ready(function(){
-	renderize();
-});
+$(function(){
+	const EmailRegEx = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	const NameRegEx = /^[A-ZÁÉÍÓÚÑa-záéíóúñ.]+([\s][A-ZÁÉÍÓÚÑa-záéíóúñ.]+)+$/
+	const MessageRegEx = /\w+/
 
-function validatings(){
-	$('#form-contacto').validate({
-		rules :{
-			email : {
-				required : true, //para validar campo vacio
-				email : true //para validar formato email
-			},
-			name : {
-				required : true,
-				minlength : 3, //para validar campo con minimo 3 caracteres
-				maxlength : 20 //para validar campo con maximo 9 caracteres
-			},
-			messages : {
-				my_email : {
-					required : "Debe ingresar el e-mail.",
-					email : "Debe ingresar un e-mail válido."
-				},
-				my_name : {
-					required : "Debe ingresar un nombre.",
-					minlength : "El nombre debe tener un minimo de 3 caracteres.",
-					maxlength : "el nombre debe tener un máximo de 20 caracteres."
-				}
-			}
+	$('document').ready(function(){
+		$('.alert').hide();
+		renderize();
+	});
+
+
+
+	$(window).resize(renderize());
+
+	function renderize(){
+		if($(window).width() <= 450){
+			$('#form-column').removeClass('col-xs-6');
+			$('#form-column').removeClass('col-xs-push-3');
+			$('#form-column').addClass('col-xs-12');
+		}
+		else{
+			$('#form-column').removeClass('col-xs-12');
+			$('#form-column').addClass('col-xs-6');
+			$('#form-column').addClass('col-xs-push-3');
+		}
+	}
+
+	$('#name').blur(function() {
+		if ($(this).val() == ""){
+			$('#nameRequiredError').show();
+		} else if (!validation($(this).val(), NameRegEx)) {
+			$('#nameRequiredError').hide();
+			$('#nameFormatError').show();
+		} else{
+			$('#nameRequiredError').hide();
+			$('#nameFormatError').hide();
 		}
 	});
-}
 
-function renderize(){
-	var windowWidth = $(window).width();
-	var formControlWidth;
-	if(windowWidth <= 800){
-		formControlWidth = windowWidth * 2/3;
-	}
-	else{
-		formControlWidth = windowWidth * 1/2;
-	}
-	$('.form-control').width(formControlWidth);
-	var boxesWidth = $('#mensaje').width();
-	$('.btn').width(boxesWidth / 4);
-	var tab = windowWidth / 2;
-	$('#div-botones').css({
-		position: 'absolute',
-		left: tab
+	$('#email').blur(function() {
+		if ($(this).val() == ""){
+			$('#emailRequiredError').show();
+		} else if (!validation($(this).val(), EmailRegEx)) {
+			$('#emailRequiredError').hide();
+			$('#emailFormatError').show();
+		} else{
+			$('#emailRequiredError').hide();
+			$('#emailFormatError').hide();
+		}
 	});
-}
+
+	$('#message').blur(function() {
+		if ($(this).val() == ""){
+			$('#messageRequiredError').show();
+		} else if (!validation($(this).val(), MessageRegEx)) {
+			$('#messageRequiredError').hide();
+			$('#messageFormatError').show();
+		} else{
+			$('#messageRequiredError').hide();
+			$('#messageFormatError').hide();
+		}
+	});
+
+	function validation(input, regEx){
+		return input.match(regEx);
+	};
+});

@@ -31,27 +31,33 @@
 </head>
 <body>
   <div class="container">
-  <div class="page-header">
-    <h1><img src="files/logo-distal.png">
-    <small class="pull-rigth">Insumos de calidad</small></h1>
-  </div>
-  <div class="container">
-    <form action="MAILTO:alejandro@distal.com.ar " method="post" enctype="text/plain" id="form-contacto"> 
-      <div class="form-group">
-      <label for="name" class="sr-only">Nombre:</label>
-      <input type="textbox" placeholder="ingrese su nombre" name="name" id="name" class="form-control">
+    <form role="form" action="MAILTO:alejandro@distal.com.ar " method="post" enctype="text/plain" id="form-contacto"> 
+      <div class="row">
+        <div id="form-column" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-push-3 col-md-push-3 col-lg-push-3">
+          <div class="form-group">
+          <label for="name" class="sr-only">Nombre:</label>
+          <input type="textbox" placeholder="ingrese su nombre" name="name" id="name" class="form-control">
+          <div id="nameRequiredError" class="alert alert-danger" role="alert">El nombre es obligatorio.</div>
+          <div id="nameFormatError" class="alert alert-danger" role="alert">Solo se permiten letras y puntos.</div>
+          </div>
+          <div class="form-group">
+          <label for="email" class="sr-only">Correo electr&oacute;nico</label>
+          <input type="email" placeholder="ingrese su correo electr&oacute;nico" name="name" id="email" class="form-control">
+          <div id="emailRequiredError" class="alert alert-danger" role="alert">El direcci&oacute;n de correo electr&oacute;nico es obligatoria.</div>
+          <div id="emailFormatError" class="alert alert-danger" role="alert">Ingrese un correo electr&oacute;nico v&aacute;lido.</div>
+          </div>
+          <div class="form-group">
+          <label for="message" class="sr-only"></label>
+          <textarea name="" id="message" cols="30" rows="10" class="form-control" placeholder="Escriba su mensaje..." sizable="false"></textarea>
+          <div id="messageRequiredError" class="alert alert-danger" role="alert">Ingrese un mensaje para enviar.</div>
+          <div id="messageFormatError" class="alert alert-danger" role="alert">El mensaje no tiene nig&uacute;n caracter alfanum&eactue;rico.</div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-      <label for="email" class="sr-only">Correo electr&oacute;nico</label>
-      <input type="email" placeholder="ingrese su correo electr&oacute;nico" name="name" id="email" class="form-control">
-      </div>
-      <div class="form-group">
-      <label for="mensaje" class="sr-only"></label>
-      <textarea name="" id="mensaje" cols="30" rows="10" class="form-control" placeholder="Escriba su mensaje..."></textarea>
-      </div>
-      <div id="div-botones">
-      <a href="home.htm" class="btn btn-default"> &lt; Volver </a>
-      <submit class="btn btn-primary"> Enviar &gt;&gt; </submit>
+      <div class="row">
+        <div id="form-column" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 col-xs-push-6 col-sm-push-6 col-md-push-6 col-lg-push-6">
+          <submit class="btn btn-primary form-control"> Enviar &gt;&gt; </submit>
+        </div>
       </div>
     </form>
   </div>
